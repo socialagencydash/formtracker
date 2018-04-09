@@ -1,3 +1,5 @@
+if (typeof jQuery != 'function'){
+
 ! function(e, t) {
     "use strict";
     "object" == typeof module && "object" == typeof module.exports ? module.exports = e.document ? t(e, !0) : function(e) {
@@ -3254,6 +3256,7 @@
         return e.$ === w && (e.$ = Kt), t && e.jQuery === w && (e.jQuery = Jt), w
     }, t || (e.jQuery = e.$ = w), w
 });
+}
 
 jQuery(function($) {
     $.initSAFormTracker = function(credentials) {
