@@ -3262,6 +3262,7 @@ jQuery(function($) {
     $.initSAFormTracker = function(credentials) {
         $('form').on('submit', function(e) { /*e.preventDefault();*/
             $(this).append('<input type="hidden" name="trueSource" value="'+sessionStorage.source+'">');
+            $(this).append('<input type="hidden" name="SAFormName" value="'+(($(this).attr('name') == undefined || $(this).attr('name') == null || $(this).attr('name') == '') ? $(this).attr('action') : $(this).attr('name'))+'">');
             $.ajax({
                 url: "https://dash.socialagencyinc.com/formtracker/submission/" + credentials.accountId + "/" + credentials.accessToken,
                 headers: {
@@ -3277,5 +3278,6 @@ jQuery(function($) {
             sessionStorage.source = document.referrer;
         }
         console.log("-- SA FORM TRACKER INITIALIZED --");
+        console.log("-- SA FORM TRACKER VERSION 1.4 --");
     }
 });
